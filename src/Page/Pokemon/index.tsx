@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { api } from '../../Service/Api';
+import { Container } from './styles';
+import {getImages} from '../../Service/Api'
 
 type Ability = {
     ability: {
@@ -79,21 +81,29 @@ export function Pokemon(){
     },[])
 
     return(
-        <>
-          <h1>Nome: {pokemon.name}</h1> 
-          <p>Habilidades</p>
-          {pokemon.abilities.map(e => (
-            <p key={e.ability.name}>{e.ability.name}</p>
-          ))} 
+        <Container>
+            
+          <div>
+            <h1>{pokemon.name}</h1> 
+            <img src={getImages(Number(id))} alt={`imagem ${pokemon.name}`}/>
+          </div>
+          <div>
+            <p>Habilidades</p>
+            {pokemon.abilities.map(e => (
+                <p key={e.ability.name}>{e.ability.name}</p>
+            ))} 
+          </div>
+
           <p>Status</p>
           {pokemon.stats.map(e => (
             <p key={e.stat.name}>{e.base_stat} {e.stat.name}</p>
-          ))} 
+          ))}
+
           <p>Tipos</p>
           {pokemon.types.map(e => (
             <p key={e.type.name}>{e.type.name}</p>
           ))}
 
-        </>
+        </Container>
     )
 }
