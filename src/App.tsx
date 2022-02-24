@@ -34,18 +34,19 @@ export default function App() {
       <Container>
         <Header/>
         <input type="text" value={name} onChange={e => setName(e.target.value)} />
-        <button onClick={() => setPokemonLimit([...pokemon])}>Pesquisar</button>
         <ul>
-          {pokemonLimit.map(e => {
-            if(false){
-              
-            }else{
-              return <DisplayPokemon key={e.name} name={e.name} url={e.url}/>
+          {pokemonLimit.filter(e => {
+            if(name === ''){
+              return e;
+            }else if(e.name.toLowerCase().includes(name.toLowerCase())) {
+              return e;
             }
-            
-          })}
+          }).map(e => (
+           
+            <DisplayPokemon key={e.name} name={e.name} url={e.url}/>
+          ))}
         </ul>
-        <button onClick={() => setNumLoad(numLoad + 15)}>+ Pokémon</button>
+        <button onClick={() => {setNumLoad(state => state + 15)}}>+ Pokémon</button>
         <GlobalStyle/>
       </Container>
 

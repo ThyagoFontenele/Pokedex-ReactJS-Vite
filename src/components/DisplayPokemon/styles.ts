@@ -16,9 +16,6 @@ export const Container = styled.li`
             position: absolute;
             transition: all 0.5s;
         }
-        &:hover img{
-            width: 260px;
-        }
     }
     section{
         text-transform: capitalize;
@@ -38,6 +35,8 @@ export const Container = styled.li`
             margin-right: 5px;
         }
     }
-    
+    &:hover img{
+        width: 260px;
+    }
   
 `;
