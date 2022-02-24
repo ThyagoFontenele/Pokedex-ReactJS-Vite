@@ -2,7 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { api } from '../../Service/Api';
 import { Container } from './styles';
-import {getImages} from '../../Service/Api'
+import {getImages} from '../../Service/Api';
+import { SpanType } from '../../components/SpanType/index';
 
 type Ability = {
     ability: {
@@ -82,7 +83,7 @@ export function Pokemon(){
 
     return(
         <Container>
-            
+
           <div>
             <h1>{pokemon.name}</h1> 
             <img src={getImages(Number(id))} alt={`imagem ${pokemon.name}`}/>
@@ -101,7 +102,7 @@ export function Pokemon(){
 
           <p>Tipos</p>
           {pokemon.types.map(e => (
-            <p key={e.type.name}>{e.type.name}</p>
+            <SpanType key={e.type.name} text={e.type.name} />
           ))}
 
         </Container>

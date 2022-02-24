@@ -12,7 +12,7 @@ export const Container = styled.li`
         border-radius: 0.2rem;
         cursor: pointer;
         img{
-            width: 200px;
+            width: 240px;
             position: absolute;
             transition: all 0.5s;
         }
@@ -36,7 +36,7 @@ export const Container = styled.li`
         }
     }
     &:hover img{
-        width: 260px;
+        width: 270px;
     }
   
 `;
