@@ -52,3 +52,59 @@ export interface SpeciesDatas {
     evolution_chain: EvolutionChain;
     habitat: Habitat;
 }
+
+export const pokemonInitialData = {
+    name: "",
+    height: 0,
+    weight: 0,
+    abilities: [
+        {
+            ability: {
+                name: "",
+                url: "",
+            }
+        }
+    ],
+    stats: [
+        {
+            base_stat: 0,
+            effort: 0,
+            stat: {
+                name: ''
+            }
+        }
+    ],
+    species: {
+        url: ""
+    },
+    types: [
+        {
+            type: {
+                name: "",
+                url: ""
+            }
+        }
+    ]
+} as PokemonInfo
+
+export const specieInfoInitialData = {
+    evolution_chain: {
+        url: ''
+    },
+    habitat: {
+        name: '',
+        url: ''
+    }
+}
+
+export const datasInitial = {
+    id: 0,
+    types: [
+        {
+            type: {
+                name: "",
+                url: ""
+            }
+        }
+    ]
+} as Datas

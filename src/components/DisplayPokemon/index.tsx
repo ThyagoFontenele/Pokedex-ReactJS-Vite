@@ -4,19 +4,7 @@ import { getImages } from '../../Service/GetImage'
 import { Container } from './styles';
 import { Link } from 'react-router-dom'
 import { SpanType } from '../SpanType/index';
-import {  Pokemon, Datas } from '../../Service/Types';
-
-const datasInitial = {
-    id: 0,
-    types: [
-        {
-            type: {
-                name: "",
-                url: ""
-            }
-        }
-    ]
-} as Datas
+import {  Pokemon, Datas, datasInitial } from '../../Service/Types';
 
 export function DisplayPokemon({name, url}:Pokemon){
 

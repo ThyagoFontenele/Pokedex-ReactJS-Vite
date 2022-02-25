@@ -4,52 +4,8 @@ import { api } from '../../Service/Api';
 import { Container } from './styles';
 import {getImages} from '../../Service/GetImage';
 import { SpanType } from '../../components/SpanType/index';
-import { PokemonInfo, SpeciesDatas } from '../../Service/Types'
+import { PokemonInfo, SpeciesDatas, pokemonInitialData, specieInfoInitialData } from '../../Service/Types'
 
-
-const pokemonInitialData = {
-    name: "",
-    height: 0,
-    weight: 0,
-    abilities: [
-        {
-            ability: {
-                name: "",
-                url: "",
-            }
-        }
-    ],
-    stats: [
-        {
-            base_stat: 0,
-            effort: 0,
-            stat: {
-                name: ''
-            }
-        }
-    ],
-    species: {
-        url: ""
-    },
-    types: [
-        {
-            type: {
-                name: "",
-                url: ""
-            }
-        }
-    ]
-} as PokemonInfo
-
-const specieInfoInitialData = {
-    evolution_chain: {
-        url: ''
-    },
-    habitat: {
-        name: '',
-        url: ''
-    }
-}
 export function Pokemon(){
 
     const { id } = useParams();
