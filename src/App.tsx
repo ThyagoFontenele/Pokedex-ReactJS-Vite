@@ -4,16 +4,12 @@ import { GlobalStyle } from "./styles/global";
 import { api } from './Service/Api';
 import { Container } from './styles/AppStyles';
 import { Header } from './components/Header/index'
-
-interface PokemonsProps {
-  name: string;
-  url: string;
-}
+import { Pokemon } from './Service/Types'
 
 export default function App() {
   
-  const [pokemon, setPokemon] = useState<PokemonsProps[]>([]);
-  const [pokemonLimit, setPokemonLimit] = useState<PokemonsProps[]>([]);
+  const [pokemon, setPokemon] = useState<Pokemon[]>([]);
+  const [pokemonLimit, setPokemonLimit] = useState<Pokemon[]>([]);
   const [numLoad, setNumLoad] = useState(15);
   const [name, setName] = useState('');
   useEffect(()=>{
