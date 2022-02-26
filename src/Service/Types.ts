@@ -28,6 +28,10 @@ type Habitat = {
     name: string;
     url: string;
 }
+type Color = {
+    name: any;
+    url: string;
+}
 export interface PokemonInfo {
     name: string;
     height: number;
@@ -49,6 +53,7 @@ export interface Datas{
 }
 
 export interface SpeciesDatas {
+    color: Color;
     evolution_chain: EvolutionChain;
     habitat: Habitat;
 }
@@ -88,6 +93,10 @@ export const pokemonInitialData = {
 } as PokemonInfo
 
 export const specieInfoInitialData = {
+    color: {
+        name: '',
+        url: ''
+    },
     evolution_chain: {
         url: ''
     },

@@ -24,17 +24,17 @@ export function Pokemon(){
 
     useEffect(() => {
         if(pokemon.species.url.length > 0){
-            (async () => {
-                const { data } = await api.get(pokemon.species.url);
-                const { evolution_chain, habitat } = data;
-                setSpeciesInfo({evolution_chain, habitat});
-                console.log(speciesInfo)
-            })();
+          (async () => {
+            const { data } = await api.get(pokemon.species.url);
+            const { color, evolution_chain, habitat } = data;
+            setSpeciesInfo({color, evolution_chain, habitat});
+          })();
         }
     }, [pokemon.species.url]);
 
+    
     return(
-        <Container>
+        <Container color={speciesInfo.color.name}>
 
           <div> 
             <h1>{pokemon.name}</h1> 
