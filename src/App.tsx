@@ -5,7 +5,6 @@ import { api } from './Service/Api';
 import { Container } from './styles/AppStyles';
 import { Header } from './components/Header/index'
 import { Pokemon } from './Service/Types'
-import PokeBall   from './assets/pokebola.png';
 
 export default function App() {
   
@@ -30,7 +29,7 @@ export default function App() {
     <>
       <Container>
         <Header/>
-        <img src={PokeBall} alt="pokeball" className="pokeball"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/601px-Pokebola-pokeball-png-0.png?20161126061739" alt="pokeball" className="pokeball"/>
         <input type="text" value={name} onChange={e => setName(e.target.value)} />
         <ul>
           {pokemonLimit.filter(e => {
