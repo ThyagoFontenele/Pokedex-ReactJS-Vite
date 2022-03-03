@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.li`
+    animation: render 1s;
+    @keyframes render {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
     div{
         background: #e9e9e9;
         width: 250px;
@@ -30,9 +39,6 @@ export const Container = styled.li`
             font-size: 1.2rem;
             font-weight: 600;
             padding: 2px 0;
-        }
-        span{
-            margin-right: 5px;
         }
     }
     &:hover img{

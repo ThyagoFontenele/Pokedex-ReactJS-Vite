@@ -17,23 +17,59 @@ const colors = {
     white: '#EAEAEA',
     yellow: '#F1D419'
 }
-export const Container = styled.section<ContainerColor>`
+export const Container = styled.div<ContainerColor>`
     width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: ${props => (colors[props.color])} ;
-    h1, p {
+`;
+
+export const Section = styled.section`
+    width: 960px;
+    max-height: 100%;
+    * {
         text-transform: capitalize;
     }
-    img{
-        width: 300px;
+    h1{
+        margin-bottom: 20px;
     }
-    @keyframe move{
+    background-color: #fafafa;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+export const Grid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    .firstInfo{
+        display: flex;
+        img{
+            max-width: 400px;
+            animation: move 1s;
+        }
+        
+    }
+    
+    
+    @keyframes move{
+        from{
+            opacity: 0;
+            transform: translateX(-30px);
+        }
         to{
-            transform:;
+            transform: translateX(0px); 
+            opacity: 1;
         }
     }
     span{
-        padding: 10px 40px;
-        font-size: 16px;
-        margin: 10px;
+        font-size: 1rem;
+        padding: 5px 30px;
     }
 `;

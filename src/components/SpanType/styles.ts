@@ -38,4 +38,5 @@ export const Container = styled.span<ContainerProps>`
     border-radius: 5px;
     color: white;
     text-transform: capitalize;
+    margin-right: 5px;
 `
