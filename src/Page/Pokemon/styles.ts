@@ -44,32 +44,48 @@ export const Section = styled.section`
 `
 
 export const Grid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-
-    .firstInfo{
-        display: flex;
-        img{
-            max-width: 400px;
-            animation: move 1s;
-        }
-        
+    h1{
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
     }
-    
-    
-    @keyframes move{
+    img{
+        width: 400px;
+        animation: move 2s linear infinite alternate;
+    }
+    @keyframes move {
         from{
-            opacity: 0;
-            transform: translateX(-30px);
+            transform: translateY(0%);
         }
         to{
-            transform: translateX(0px); 
-            opacity: 1;
+            transform: translateY(-6%);
         }
     }
-    span{
-        font-size: 1rem;
-        padding: 5px 30px;
-    }
+   display: flex;
+   justify-content: space-between;
+   .firstInfo{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       div{
+           p{
+               width: 70px;
+               margin: 0 auto;
+               text-align: center;
+               padding: 4px 0;
+               border-radius: 4px;
+               font-size: 16px;
+               background-color: #c4c4c4;
+               color: white;
+               margin-bottom: 10px;
+           }
+           span{
+               font-size: 16px;
+               font-weight: bold;
+               text-transform: capitalize;
+               padding: 5px 40px;
+           }
+       }
+   }
 `;

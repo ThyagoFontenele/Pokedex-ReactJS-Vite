@@ -36,12 +36,20 @@ export function Pokemon(){
     return(
         <Container color={speciesInfo.color.name}>
           <Section>
-            <h1>{pokemon.name} Nº{id?.padStart(3, "0")}</h1> 
+            
           <Grid>
           
             <div className="firstInfo"> 
+              <h1>{pokemon.name} Nº{id?.padStart(3, "0")}</h1> 
               <img src={getImages(Number(id))} alt={`imagem ${pokemon.name}`}/>
               <div>
+                <p>Type{pokemon.types.length > 1 ? 's' : ''}</p>
+                {pokemon.types.map(e => (
+                    <SpanType key={e.type.name} text={e.type.name} />
+                ))}
+              </div>
+            </div>
+            <div>
                 <p>Habitat: {speciesInfo.habitat.name}</p>
                 <p>Height: {pokemon.height}</p>
                 <p>Weight: {pokemon.weight}</p>
@@ -50,19 +58,10 @@ export function Pokemon(){
                     <p key={e.ability.name}>{e.ability.name}</p>
                 ))} 
               </div>
-            </div>
-          
             <div>
               <p>Status</p>
               {pokemon.stats.map(e => (
                   <p key={e.stat.name}>{e.base_stat} {e.stat.name}</p>
-              ))}
-            </div>
-            
-            <div>
-              <p>Type</p>
-              {pokemon.types.map(e => (
-                  <SpanType key={e.type.name} text={e.type.name} />
               ))}
             </div>
             </Grid>
