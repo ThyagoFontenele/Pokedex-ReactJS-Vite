@@ -29,20 +29,21 @@ export default function App() {
     <>
       <Container>
         <Header/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/601px-Pokebola-pokeball-png-0.png?20161126061739" alt="pokeball" className="pokeball"/>
-        <input type="text" value={name} onChange={e => setName(e.target.value)} />
-        <ul>
-          {pokemonLimit.filter(e => {
-            if(name === ''){
-              return e;
-            }else if(e.name.toLowerCase().includes(name.toLowerCase())) {
-              return e;
-            }
-          }).map(e => (
-           
-            <DisplayPokemon key={e.name} name={e.name} url={e.url}/>
-          ))}
-        </ul>
+        <div>
+          <input type="text" value={name} onChange={e => setName(e.target.value)} />
+          <ul>
+            {pokemonLimit.filter(e => {
+              if(name === ''){
+                return e;
+              }else if(e.name.toLowerCase().includes(name.toLowerCase())) {
+                return e;
+              }
+            }).map(e => (
+            
+              <DisplayPokemon key={e.name} name={e.name} url={e.url}/>
+            ))}
+          </ul>
+        </div>
         <button onClick={() => {setNumLoad(state => state + 15)}}>+ Pokémon</button>
         <GlobalStyle/>
       </Container>

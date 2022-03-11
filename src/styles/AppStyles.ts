@@ -1,21 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    .pokeball{
-        position: fixed;
-        left: 30px;
-        top: 5%;
-        width: 120px;
-        opacity: 0.9;
-        animation: poke 1s linear infinite alternate;
-    }
-    @keyframes poke {
-      to{
-        top: 7%;
-        transform: rotate(10deg);
-      }
-
-    }
     ul{
         display: grid;
         grid-template-columns: repeat(3, 1fr);

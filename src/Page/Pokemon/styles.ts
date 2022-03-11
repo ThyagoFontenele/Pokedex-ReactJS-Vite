@@ -26,24 +26,21 @@ export const Container = styled.div<ContainerColor>`
     background-color: ${props => (colors[props.color])} ;
 `;
 
-export const Section = styled.section`
-    width: 960px;
-    max-height: 100%;
-    * {
+
+export const Scop = styled.div`
+    *{
         text-transform: capitalize;
+        box-sizing: border-box;
     }
-    h1{
-        margin-bottom: 20px;
-    }
-    background-color: #fafafa;
-    padding: 30px;
-    border-radius: 5px;
     display: flex;
+    padding: 30px;
+    background-color: #fafafa;
+    border-radius: 2px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
     align-items: center;
     justify-content: center;
-`
-
-export const Grid = styled.div`
+    gap: 50px;
+    flex-wrap: wrap;
     h1{
         font-size: 2rem;
         font-weight: bold;
@@ -58,11 +55,9 @@ export const Grid = styled.div`
             transform: translateY(0%);
         }
         to{
-            transform: translateY(-6%);
+            transform: translateY(-4%);
         }
     }
-   display: flex;
-   justify-content: space-between;
    .firstInfo{
        display: flex;
        flex-direction: column;
@@ -79,13 +74,54 @@ export const Grid = styled.div`
                background-color: #c4c4c4;
                color: white;
                margin-bottom: 10px;
+               box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
            }
            span{
                font-size: 16px;
                font-weight: bold;
                text-transform: capitalize;
                padding: 5px 40px;
+               box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
            }
+       }
+   }
+   .secondInfo {
+       display: flex;
+       flex-direction: column;
+       gap: 40px;
+       align-items: center;
+
+       .defaultInfo{
+           display: grid;
+           gap: 20px 50px;
+           background-color: #30a7d7;
+           padding: 20px;
+           border-radius: 10px;
+           grid-template-columns: 1fr 1fr;
+           box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+           font-weight: 700;
+           h2{
+            color: white;
+            font-size: 18px;
+           }
+           p{
+            color: #111;
+            font-weight: 500;
+           }
+       }
+
+       .status{
+           .bars{
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            justify-self: flex-end;
+            background-color: #30a7d7;
+            border: 2px solid #111;
+            color: white;
+            padding: 30px 30px 40px 30px;
+            border-radius: 10px;
+        }
        }
    }
 `;

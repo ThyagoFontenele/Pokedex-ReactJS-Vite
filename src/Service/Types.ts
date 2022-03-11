@@ -24,10 +24,6 @@ type Specie = {
 type EvolutionChain = {
     url: string;
 }
-type Habitat = {
-    name: string;
-    url: string;
-}
 type Color = {
     name: any;
     url: string;
@@ -55,7 +51,6 @@ export interface Datas{
 export interface SpeciesDatas {
     color: Color;
     evolution_chain: EvolutionChain;
-    habitat: Habitat;
 }
 
 export const pokemonInitialData = {
@@ -100,11 +95,7 @@ export const specieInfoInitialData = {
     evolution_chain: {
         url: ''
     },
-    habitat: {
-        name: '',
-        url: ''
-    }
-}
+} as SpeciesDatas
 
 export const datasInitial = {
     id: 0,

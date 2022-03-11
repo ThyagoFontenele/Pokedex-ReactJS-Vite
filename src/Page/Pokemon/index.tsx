@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { api } from '../../Service/Api';
-import { Container, Grid, Section } from './styles';
+import { Container, Scop } from './styles';
 import {getImages} from '../../Service/GetImage';
 import { SpanType } from '../../components/SpanType/index';
 import { PokemonInfo, SpeciesDatas, pokemonInitialData, specieInfoInitialData } from '../../Service/Types'
+import { BarStatus } from '../../components/barStatus';
 
 export function Pokemon(){
 
@@ -26,19 +27,16 @@ export function Pokemon(){
         if(pokemon.species.url.length > 0){
           (async () => {
             const { data } = await api.get(pokemon.species.url);
-            const { color, evolution_chain, habitat } = data;
-            setSpeciesInfo({color, evolution_chain, habitat});
+            const { color, evolution_chain } = data;
+            setSpeciesInfo({color, evolution_chain});
           })();
         }
     }, [pokemon.species.url]);
-
+    console.log(pokemon.species.url)
     
     return(
         <Container color={speciesInfo.color.name}>
-          <Section>
-            
-          <Grid>
-          
+          <Scop>
             <div className="firstInfo"> 
               <h1>{pokemon.name} Nº{id?.padStart(3, "0")}</h1> 
               <img src={getImages(Number(id))} alt={`imagem ${pokemon.name}`}/>
@@ -49,23 +47,34 @@ export function Pokemon(){
                 ))}
               </div>
             </div>
-            <div>
-                <p>Habitat: {speciesInfo.habitat.name}</p>
-                <p>Height: {pokemon.height}</p>
-                <p>Weight: {pokemon.weight}</p>
-                <p>Habilidades</p>
-                {pokemon.abilities.map(e => (
-                    <p key={e.ability.name}>{e.ability.name}</p>
-                ))} 
+
+            <div className="secondInfo">
+              <div className="defaultInfo">
+                <div>
+                  <h2>Height</h2>
+                  <p>{pokemon.height} m</p>
+                </div>
+                <div>
+                  <h2>Weight</h2>
+                  <p>{pokemon.weight} kg</p>
+                </div>
+                <div>
+                  <h2>Habilidades</h2>
+                  {pokemon.abilities.map(e => (
+                      <p key={e.ability.name}>*{e.ability.name}</p>
+                  ))}
+                </div>
+              </div> 
+              <div className="status">
+                <p>Stats</p>
+                <div className="bars">
+                  {pokemon.stats.map(e => (
+                    <BarStatus key={e.stat.name} height={e.base_stat} type={e.stat.name}/>
+                  ))}
+                </div>
               </div>
-            <div>
-              <p>Status</p>
-              {pokemon.stats.map(e => (
-                  <p key={e.stat.name}>{e.base_stat} {e.stat.name}</p>
-              ))}
             </div>
-            </Grid>
-          </Section>
+            </Scop>
         </Container>
     )
 }
